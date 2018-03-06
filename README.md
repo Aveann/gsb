@@ -8,4 +8,4 @@ Cette application php doit permettre d'enregistrer tout frais engagé par les vi
 
 ## Auteurs
 
-* **Naëva Arnould** - *Ajout de fonctionnalités* - [Aveann](https://github.com/Aveann)
+* **Naëva Arnould** - *Ajout de la fonction comptable* - [Aveann](https://github.com/Aveann)

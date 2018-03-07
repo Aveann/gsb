@@ -1,18 +1,4 @@
 <?php
-/**
- * Classe d'accès aux données.
- *
- * PHP Version 7
- *
- * @category  PPE
- * @package   GSB
- * @author    Cheri Bibi - Réseau CERTA <contact@reseaucerta.org>
- * @author    José GIL - CNED <jgil@ac-nice.fr>
- * @copyright 2017 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.php.net/manual/fr/book.pdo.php PHP Data Objects sur php.net
- */
 
 /**
  * Classe d'accès aux données.
@@ -30,6 +16,7 @@
  * @package   GSB
  * @author    Cheri Bibi - Réseau CERTA <contact@reseaucerta.org>
  * @author    José GIL <jgil@ac-nice.fr>
+ * @author    Naëva ARNOULD <naeva.ar@gmail.com>
  * @copyright 2017 Réseau CERTA
  * @license   Réseau CERTA
  * @version   Release: 1.0
@@ -88,7 +75,7 @@ class PdoGsb
      * @param String $login Login de l'utilisateur
      * @param String $mdp   Mot de passe de l'utilisateur
      *
-     * @return l'id, le nom, le prénom et l'id du type d'utilisateur sous la forme d'un tableau associatif
+     * @return ArrayObject  L'id, le nom, le prénom et l'id du type d'utilisateur sous la forme d'un tableau associatif
      */
     public function getInfosUser($login, $mdp)
     {
@@ -257,10 +244,10 @@ class PdoGsb
      * La boucle foreach ne peut être utilisée ici car on procède
      * à une modification de la structure itérée - transformation du champ date-
      *
-     * @param String $iduser ID de l'user
-     * @param String $mois       Mois sous la forme aaaamm
+     * @param String $iduser    ID de l'user
+     * @param String $mois      Mois sous la forme aaaamm
      *
-     * @return tous les champs des lignes de frais hors forfait sous la forme
+     * @return ArrayObject      Tous les champs des lignes de frais hors forfait sous la forme
      * d'un tableau associatif
      */
     public function getLesFraisHorsForfait($idUser, $mois)
@@ -461,7 +448,7 @@ class PdoGsb
      * @param Array  $lesFrais   tableau associatif de clé idFrais et
      *                           de valeur la quantité pour ce frais
      *
-     * @return Boolean vrai si la requête a été un succès, faux sinon
+     * @return Boolean              vrai si la requête a été un succès, faux sinon
      */
     public function majFraisForfait($idVisiteur, $mois, $lesFrais)
     {
@@ -496,7 +483,7 @@ class PdoGsb
      * @param Boolean $refus                    La valeur que prendra le champ
       * "refus"
      *
-     * @return Boolean vrai si la requête a été un succès, faux sinon
+     * @return Boolean              vrai si la requête a été un succès, faux sinon
      */
     public function majRefusFraisHorsForfait($idLigneFraisHorsForfait, $refus)
     {
@@ -517,7 +504,7 @@ class PdoGsb
      *
      * @param String $idLigneFraisHorsForfait ID de la ligne hors forfait
      *
-     * @return Boolean vrai si la requête a été un succès, faux sinon
+     * @return Boolean              vrai si la requête a été un succès, faux sinon
      */
     public function majReportFraisHorsForfait($idLigneFraisHorsForfait, $mois)
     {
@@ -544,7 +531,7 @@ class PdoGsb
      * @param String  $mois            Mois sous la forme aaaamm
      * @param Integer $nbJustificatifs Nombre de justificatifs
      *
-     * @return Boolean vrai si la requête a été un succès, faux sinon
+     * @return Boolean                 vrai si la requête a été un succès, faux sinon
      */
     public function majNbJustificatifs($idVisiteur, $mois, $nbJustificatifs)
     {
@@ -572,7 +559,7 @@ class PdoGsb
      * @param String $mois       Mois sous la forme aaaamm
      * @param String $etat       Nouvel état de la fiche de frais
      *
-     * @return null
+     * @return Boolean          Vrai si la requête est un succès, faux sinon.
      */
     public function majEtatFicheFrais($idVisiteur, $mois, $etat)
     {
@@ -596,7 +583,7 @@ class PdoGsb
      * @param String $mois       Mois sous la forme aaaamm
      * @param String $montant    Nouveau montant validé de la fiche de frais
      *
-     * @return Boolean
+     * @return Boolean      Vrai si la requête est un succès, faux sinon
      */
     public function majMontantValideFicheFrais($iduser, $mois, $montant)
     {
@@ -624,7 +611,7 @@ class PdoGsb
      * @param String $idVisiteur ID du visiteur
      * @param String $mois       Mois sous la forme aaaamm
      *
-     * @return null
+     * @return Boolean      Vrai si la requête est un succès, faux sinon
      */
     public function creeNouvellesLignesFrais($idVisiteur, $mois)
     {
@@ -676,7 +663,7 @@ class PdoGsb
      * @param String $date       Date du frais au format français jj//mm/aaaa
      * @param Float  $montant    Montant du frais
      *
-     * @return null
+     * @return Boolean Vrai si la requête est un succès, faux sinon
      */
     public function creeNouveauFraisHorsForfait(
         $idVisiteur,
@@ -708,7 +695,7 @@ class PdoGsb
      *
      * @param String $idFrais ID du frais
      *
-     * @return null
+     * @return Boolean Vrai si la requête est un succès, faux sinon
      */
     public function supprimerFraisHorsForfait($idFrais)
     {
@@ -726,7 +713,7 @@ class PdoGsb
      * @param String $idVisiteur ID du user
      * @param String $mois       Mois sous la forme aaaamm
      *
-     * @return vrai ou faux
+     * @return Boolean
      */
     public function estPremierFraisMois($idVisiteur, $mois)
     {
@@ -755,7 +742,7 @@ class PdoGsb
      *
      * @param String $iduser ID du user
      *
-     * @return le mois sous la forme aaaamm
+     * @return String le mois sous la forme aaaamm
      */
     public function dernierMoisSaisi($iduser)
     {

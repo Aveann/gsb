@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">Documentation</a></li>        
+                        <li><a href="/doc">Documentation</a></li>        
                     </ul>
                 </div>
                 <div class="col-md-3">

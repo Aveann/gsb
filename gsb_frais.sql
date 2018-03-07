@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 06 mars 2018 à 11:35
+-- Généré le :  mer. 07 mars 2018 à 11:24
 -- Version du serveur :  5.7.19
--- Version de PHP :  5.6.31
+-- Version de PHP :  7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,19 +60,21 @@ CREATE TABLE IF NOT EXISTS `fichefrais` (
   `montantvalide` decimal(10,2) DEFAULT NULL,
   `datemodif` date DEFAULT NULL,
   `idetat` char(2) DEFAULT 'CR',
+  `idcomptable` int(11) DEFAULT NULL,
   PRIMARY KEY (`iduser`,`mois`),
-  KEY `idetat` (`idetat`)
+  KEY `idetat` (`idetat`),
+  KEY `fk_idcomptable_user` (`idcomptable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `fichefrais`
 --
 
-INSERT INTO `fichefrais` (`iduser`, `mois`, `nbjustificatifs`, `montantvalide`, `datemodif`, `idetat`) VALUES
-(1, '201802', 6, '3288.36', '2018-03-06', 'PM'),
-(1, '201803', 0, '0.00', '2018-03-03', 'CR'),
-(3, '201802', 3, '1968.80', '2018-03-06', 'PM'),
-(3, '201803', 0, '0.00', '2018-03-05', 'CR');
+INSERT INTO `fichefrais` (`iduser`, `mois`, `nbjustificatifs`, `montantvalide`, `datemodif`, `idetat`, `idcomptable`) VALUES
+(1, '201802', 6, '3574.36', '2018-03-07', 'VA', NULL),
+(1, '201803', 0, '0.00', '2018-03-07', 'CR', NULL),
+(3, '201802', 3, '1968.80', '2018-03-07', 'VA', NULL),
+(3, '201803', 0, '0.00', '2018-03-05', 'CR', NULL);
 
 -- --------------------------------------------------------
 
@@ -124,10 +126,10 @@ INSERT INTO `lignefraisforfait` (`iduser`, `mois`, `idfraisforfait`, `quantite`)
 (1, '201802', 'KM', 78),
 (1, '201802', 'NUI', 13),
 (1, '201802', 'REP', 22),
-(1, '201803', 'ETP', 0),
+(1, '201803', 'ETP', 9),
 (1, '201803', 'KM', 542),
-(1, '201803', 'NUI', 0),
-(1, '201803', 'REP', 0),
+(1, '201803', 'NUI', 9),
+(1, '201803', 'REP', 13),
 (3, '201802', 'ETP', 8),
 (3, '201802', 'KM', 240),
 (3, '201802', 'NUI', 8),
@@ -161,9 +163,7 @@ CREATE TABLE IF NOT EXISTS `lignefraishorsforfait` (
 --
 
 INSERT INTO `lignefraishorsforfait` (`id`, `iduser`, `mois`, `libelle`, `date`, `montant`, `refus`) VALUES
-(2, 1, '201802', 'Séance massage', '2018-02-22', '154.00', 0),
-(3, 1, '201803', 'Hotel 5 étoiles', '2018-02-18', '286.00', 0),
-(4, 1, '201803', 'Test', '2018-03-02', '523.00', 0),
+(3, 1, '201802', 'Hotel 5 étoiles', '2018-02-18', '286.00', 0),
 (13, 3, '201803', 'Achat bouquet de fleurs', '2018-02-16', '42.00', 0);
 
 -- --------------------------------------------------------
@@ -281,7 +281,8 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `vil
 --
 ALTER TABLE `fichefrais`
   ADD CONSTRAINT `fichefrais_ibfk_1` FOREIGN KEY (`idetat`) REFERENCES `etat` (`id`),
-  ADD CONSTRAINT `fichefrais_ibfk_2` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fichefrais_ibfk_2` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `fk_idcomptable_user` FOREIGN KEY (`idcomptable`) REFERENCES `user` (`id`);
 
 --
 -- Contraintes pour la table `lignefraisforfait`

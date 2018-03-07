@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="/help.php">Aide</a></li>
+                        <li><a href="/index.php?uc=help">Aide</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">GitHub</a></li>
+                        <li><a href="https://github.com/Aveann/gsb">GitHub</a></li>
                     </ul>
                 </div>  
             </div>

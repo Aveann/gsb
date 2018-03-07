@@ -54,7 +54,7 @@
             $idetat = $ficheFrais['idetat'];
             $etatlibelle = $ficheFrais['etatlibelle'];
             $class = $idetat == 'VA' ? 'active' : 'info';
-            $action = $idetat == 'VA' ? 'Mettre en paiment' : 'Indiquer comme remboursée';
+            $action = $idetat == 'VA' ? 'Mettre en paiement' : 'Indiquer comme remboursée';
             ?>
         
         <tr class="<?php echo $class?>" onclick="document.location = '/index.php?uc=suivreFicheFrais&action=afficherFiche&idVisiteur=<?php echo $iduser ?>&mois=<?php echo $mois ?>';">

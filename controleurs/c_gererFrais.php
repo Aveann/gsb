@@ -27,7 +27,7 @@ switch ($action) {
 case 'validerMajFraisForfait':
     $lesFraisForfait = filter_input(INPUT_POST, 'lesFraisForfait', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
     if (lesQteFraisValides($lesFraisForfait)) {
-        returnMessage(
+        executeThenReturnMessage(
             $pdo->majFraisForfait($idVisiteur, $mois, $lesFraisForfait),
             'Les frais ont bien été mis à jour.',
             'Les frais n\'ont pas pu être mis à jour. Veuillez contacter l\'administrateur
@@ -55,7 +55,7 @@ case 'validerCreationFrais':
             $dateFrais,
             $montant
         );
-        returnMessage(
+        executeThenReturnMessage(
             $creerFrais,
             'Ce frais hors forfait a bien été ajouté.',
             'Ce frais n\'a pas pu être ajouté. Veuillez contacter l\'administrateur
@@ -65,7 +65,7 @@ case 'validerCreationFrais':
     break;
 case 'supprimerFrais':
     $idFrais = filter_input(INPUT_GET, 'idFrais', FILTER_SANITIZE_STRING);
-    returnMessage(
+    executeThenReturnMessage(
         $pdo->supprimerFraisHorsForfait($idFrais),
         'Ce frais hors forfait a bien été suprimé.',
         'Ce frais n\'a pas pu être supprimé. Veuillez contacter l\'administrateur

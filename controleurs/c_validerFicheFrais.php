@@ -57,18 +57,7 @@ switch ($action) {
                 FILTER_DEFAULT, FILTER_SANITIZE_STRING);
         switch ($majFraisHorsFaitButton){
             case 'reporter':
-                $nextNumMois = ''; //représente le mois analysé + un mois.
-                if($numMois == '12') {
-                    $nextNumMois = '01';
-                    $nextNumAnnee = strval(intval($numAnnee) + 1);
-                    $nextMois = "$nextNumAnnee$nextNumMois";
-                } else {
-                    $nextNumMois = intval($numMois) + 1;
-                    if($nextNumMois < 10){
-                        $nextNumMois = '0'.strval($nextNumMois);
-                    }
-                    $nextMois = "$numAnnee$nextNumMois";
-                }
+                $nextMois = getNextMonth($mois);
 
                 if($pdo->estPremierFraisMois($idVisiteur, $nextMois)){
                     //L'affiche du mois suivant n'existe pas :on en crée une

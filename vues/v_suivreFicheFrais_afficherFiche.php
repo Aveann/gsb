@@ -16,7 +16,7 @@ $numMois = substr($mois, 4, 2);
 include 'v_etatFrais.php';
     
 if($idEtat == "VA"){
-    $buttonText = 'Mettre en paiment';
+    $buttonText = 'Mettre en paiement';
     $class = 'warning';
 } elseif($idEtat == "PM"){
     $buttonText = 'Indiquer comme Remboursée';

@@ -250,7 +250,7 @@ class PdoGsb
 
         return $requetePrepare->fetchAll();
     }
-    
+
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais
      * hors forfait concernées par les deux arguments.
@@ -330,7 +330,7 @@ class PdoGsb
      * @return Float              Retourne le montant total.
      */
     public function getTotalFraisHorsForfait($idVisiteur, $mois){
-        $sql = "SELECT SUM(horsforfait.montant) FROM lignefraishorsforfait "
+        $sql = "SELECT SUM(lignefraishorsforfait.montant) FROM lignefraishorsforfait "
                 . " WHERE lignefraishorsforfait.iduser = :idVisiteur "
                 . "AND lignefraishorsforfait.mois = :mois "
                 . "AND lignefraishorsforfait.refus = false";
@@ -344,7 +344,7 @@ class PdoGsb
     }
 
 
-    
+
 
     /**
      * Retourne le nombre de justificatif d'un user pour un mois donné

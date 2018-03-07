@@ -48,6 +48,9 @@ case 'deconnexion':
 case 'accueil':
     include 'controleurs/c_accueil.php';
     break;
+case 'help':
+    include 'vues/v_help.php';
+    break;
 default:
     $idTypeUser = $_SESSION['idTypeUser'];
     

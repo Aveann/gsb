@@ -98,6 +98,28 @@ function getMois($date)
     return $annee . $mois;
 }
 
+/**
+ * Retourne la date aaaamm du mois suivant.
+ *
+ * @param String $mois  Le mois au format aaaamm
+ *
+ * @return String       Le mois suivant au format aaaamm
+ */
+ function getNextMonth($mois){
+     $numAnnee = substr($mois, 0, 4);
+     $numMois = substr($mois, 4, 2);
+     if ($numMois == '12') {
+         $numMois = '01';
+         $numAnnee++;
+     } else {
+         $numMois++;
+     }
+     if (strlen($numMois) == 1) {
+         $numMois = '0' . $numMois;
+     }
+     return $numAnnee . $numMois;
+ }
+
 /* gestion des erreurs */
 
 /**

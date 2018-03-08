@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 07 mars 2018 à 11:26
+-- Généré le :  jeu. 08 mars 2018 à 14:08
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `gsb_frais`
 --
+CREATE DATABASE IF NOT EXISTS `gsb_frais` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gsb_frais`;
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `fichefrais` (
 --
 
 INSERT INTO `fichefrais` (`iduser`, `mois`, `nbjustificatifs`, `montantvalide`, `datemodif`, `idetat`, `idcomptable`) VALUES
-(1, '201802', 6, '3574.36', '2018-03-07', 'VA', NULL),
+(1, '201802', 6, '3574.36', '2018-03-08', 'PM', NULL),
 (1, '201803', 0, '0.00', '2018-03-07', 'CR', NULL),
 (3, '201802', 3, '1968.80', '2018-03-07', 'VA', NULL),
 (3, '201803', 0, '0.00', '2018-03-05', 'CR', NULL);

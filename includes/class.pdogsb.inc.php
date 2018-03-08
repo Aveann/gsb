@@ -759,16 +759,16 @@ class PdoGsb
     }
 
     /**
-     * Retourne booléen pour savoir si la page avec l'uc en paramètre est bien
-     * une page accessible pour le type d'utilisateur fourni en paramètre.
+     * Retourne booléen pour savoir si la page avec l'idTypeUser et l'uc en 
+	 * paramètres est bien une page accessible pour cet utilisateur.
      *
-     * @param Integer $idTypeUser L'id du type d'utilisateurs
-     * @param String $uc    Le champ 'uc' de la page.
+     * @param String $idTypeUser	L'id du type d'utilisateurs
+     * @param String $uc			Le champ 'uc' de la page.
      *
      * @return Boolean      vrai, si la page est une page accessible par ce type
      * d'utilisateur, faux sinon.
     */
-    public function isPageAcessibleForUserType($idTypeUser, $uc){
+    public function isPageAccessibleForUserType($idTypeUser, $uc){
         $requetePrepare = PdoGsb::$monPdo->prepare(
            "SELECT * FROM pageuser "
             . "WHERE idtypeuser = :idtypeuser AND uc = :uc "

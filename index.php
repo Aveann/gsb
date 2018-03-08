@@ -55,7 +55,7 @@ case 'help':
 default:
     $idTypeUser = $_SESSION['idTypeUser'];
     
-    $isPageAcessible = $pdo->isPageAcessibleForUserType($idTypeUser, $uc);
+    $isPageAcessible = $pdo->isPageAccessibleForUserType($idTypeUser, $uc);
     
     if($isPageAcessible){
         //si la page est une page spécifique au type de l'utilisateur

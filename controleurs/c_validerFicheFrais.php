@@ -127,12 +127,18 @@ switch ($action) {
         break;
 
     default:
-        //--Met à jour toutes les fiches du dernier à l'état "Cloturé".
+        //--Met à jour toutes les fiches du dernier mois à l'état "Cloturé".
         $moisCourrant = getMois(date('d/m/Y'));
         foreach($lesVisiteurs as $visiteur){
             $idVisiteur = $visiteur['id'];
             if ($pdo->estPremierFraisMois($idVisiteur, $moisCourrant)) {
-                //il n'y a pas de frais pour le mois courant
+                //il n'y a pas encore de frais pour le mois courant
+				//Cela signifie que le visiteur n'a pas encore saisi de fiche pour ce 
+				//mois.
+				//Or, lorsqu'il saisi une nouvelle fiche, ses fiches précédentes sont 
+				//cloturées par un script, donc pas besoin de les clôturer ici, d'où
+				//cette condition : "s'il n'a pas saisi encore de fiche (celle-ci ne
+				//sont pas clôturées), alors on va les clôturer maintenant".
                 $dernierMois = $pdo->dernierMoisSaisi($idVisiteur);
                 $laDerniereFiche = $pdo->getLesInfosFicheFrais($idVisiteur, $dernierMois);
                 if ($laDerniereFiche['idEtat'] == 'CR') {

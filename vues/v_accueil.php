@@ -45,30 +45,6 @@
                             <?php
                               }
                          }
-                        /*
-                        if($_SESSION['idTypeVisiteur'] == 'visiteur'){
-                        ?>
-                        <a href="index.php?uc=gererFrais&action=saisirFrais"
-                           class="btn btn-success btn-lg" role="button">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                            <br>Renseigner la fiche de frais</a>
-                        <a href="index.php?uc=etatFrais&action=selectionnerMois"
-                           class="btn btn-primary btn-lg" role="button">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                            <br>Afficher mes fiches de frais</a>
-                        <?php
-                        } else {
-                            ?>
-                        <a href="index.php?uc=validerFrais"
-                           class="btn btn-success btn-lg" role="button">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                            <br>Validation des fiches de frais</a>
-                        <a href="index.php?uc=suivreFrais"
-                           class="btn btn-primary btn-lg" role="button">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                            <br>Suivi du paiment des fiches de frais</a>
-                        <?php
-                        }*/
                         ?>
                             
                     </div>

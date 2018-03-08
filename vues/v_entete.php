@@ -50,11 +50,6 @@
                                 </a>
                             </li>
                         <?php
-                        /*if($_SESSION['type'] == 'visiteur'){
-                            include 'v_menuVisiteur.php';
-                        } else {
-                            include 'v_menuComptable.php';
-                        }*/
                         
                         if(isset($pageUserList)){
                               foreach($pageUserList as $pageUser){

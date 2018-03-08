@@ -5,9 +5,8 @@ Cette application php doit permettre d'enregistrer tout frais engagé par les vi
 ## Construit avec:
 * [Bootstrap4](https://getbootstrap.com/) - Front-end component library
 
-## Installer l'application
-
-
+## Installer l'application en local
+* [Manuel d'installation](https://naevaarbts.files.wordpress.com/2018/03/mode-opc3a9ratoire-dinstallation.pdf) - Tutoriel d'installation de l'application en local
 
 ## Auteurs
 
